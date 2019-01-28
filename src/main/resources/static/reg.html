@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<div>
+	<form id="reg-form" >
+		<input name="uname" placeholder="uname"><br/>
+		<input name="pwd" placeholder="pwd"><br/>
+		<input name="age" placeholder="age"><br/>
+		<input name="gender" placeholder="gender"><br/>
+		<input name="phone" placeholder="phone"><br/>
+		<input id="btn-reg" type="button" value="提交">
+	</form>
+		
+	</div>
+	<script type="text/javascript">
+		$("#btn-reg").click(function(){
+			$.ajax({
+				"url":"user/reg",
+				"data":$("#reg-form").serialize(),
+				"type":"POST",
+				"dataTYpe":"json",
+				"success":function(json){alert(json.message);}
+			});
+		});
+	
+	</script>
+</body>
+</html>
